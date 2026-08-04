@@ -71,9 +71,9 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [0, 24; 1539, 825]
-    ZoomFactor    1.77777
-    SliderPosition [272, 267]
+    Location      [0, 23; 1536, 821]
+    ZoomFactor    1.03661
+    SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -1033,6 +1033,30 @@ Plecs {
         Show          on
       }
     }
+    Component {
+      Type          Breaker
+      Name          "Br1"
+      Show          on
+      Position      [960, 270]
+      Direction     left
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "s_init"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "SwitchModel"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "f_grid"
+        Value         "0"
+        Show          off
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Probe"
@@ -1055,12 +1079,11 @@ Plecs {
       Branch {
         Points        [930, 270]
         Branch {
-          Points        [1015, 270]
-          DstComponent  "R1"
+          DstComponent  "C1"
           DstTerminal   1
         }
         Branch {
-          DstComponent  "C1"
+          DstComponent  "Br1"
           DstTerminal   1
         }
       }
@@ -1284,12 +1307,19 @@ Plecs {
       DstComponent  "C2"
       DstTerminal   2
     }
+    Connection {
+      Type          Wire
+      SrcComponent  "R1"
+      SrcTerminal   1
+      Points        [1015, 270]
+      DstComponent  "Br1"
+      DstTerminal   2
+    }
     Annotation {
       Name          "<html><body>\n<p><span style=\" font-weight:700; color:#0"
-"000b0;\">NPN Series Pass with No Compensation</span></p>\n<p><span style=\" f"
-"ont-weight:700; color:#0000b0;\">ELECTENG 311</span></p>\n<p><span style=\" f"
-"ont-size:9px; font-weight:700; color:#0000b0;\">Duleep J Thrimawithana (07-20"
-"26)</span></p></body></html>"
+"000b0;\">Charger Circuit</span></p>\n<p><span style=\" font-weight:700; color"
+":#0000b0;\">ELECTENG 311</span></p>\n<p><span style=\" font-size:9px; font-we"
+"ight:700; color:#0000b0;\">Group 9</span></p></body></html>"
       Position      [175, 70]
     } 
   }
