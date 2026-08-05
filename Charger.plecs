@@ -71,8 +71,8 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [0, 24; 1536, 822]
-    ZoomFactor    0.905838
+    Location      [0, 23; 1536, 821]
+    ZoomFactor    1.03661
     SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
@@ -100,7 +100,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "R"
-        Value         "100"
+        Value         "1"
         Show          on
       }
     }
@@ -108,7 +108,7 @@ Plecs {
       Type          Scope
       Name          "Scope"
       Show          on
-      Position      [1310, 35]
+      Position      [920, 25]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -166,7 +166,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Probe"
       Show          on
-      Position      [1235, 35]
+      Position      [845, 25]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -414,7 +414,7 @@ Plecs {
       Type          Scope
       Name          "Scope1"
       Show          on
-      Position      [1310, 90]
+      Position      [920, 80]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -472,7 +472,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Probe1"
       Show          on
-      Position      [1235, 90]
+      Position      [845, 80]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -533,7 +533,7 @@ Plecs {
       Type          DCVoltageSource
       Name          "V_dc1"
       Show          on
-      Position      [1110, 185]
+      Position      [720, 175]
       Direction     down
       Flipped       on
       LabelPosition east
@@ -547,7 +547,7 @@ Plecs {
       Type          Ground
       Name          "Ground3"
       Show          off
-      Position      [1110, 210]
+      Position      [720, 200]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -556,7 +556,7 @@ Plecs {
       Type          Label
       Name          "Label4"
       Show          off
-      Position      [1110, 145]
+      Position      [720, 135]
       Direction     up
       Flipped       off
       LabelPosition east
@@ -776,7 +776,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Probe2"
       Show          on
-      Position      [1235, 155]
+      Position      [845, 145]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -790,7 +790,7 @@ Plecs {
       Type          Scope
       Name          "Scope2"
       Show          on
-      Position      [1330, 155]
+      Position      [940, 145]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -848,7 +848,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Probe3"
       Show          on
-      Position      [1235, 200]
+      Position      [845, 190]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -862,7 +862,7 @@ Plecs {
       Type          Scope
       Name          "Scope3"
       Show          on
-      Position      [1330, 200]
+      Position      [940, 190]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -947,7 +947,7 @@ Plecs {
       IconRotates         on
       Parameter {
         Variable      "Netlist"
-        Value         ".subckt Bd140 c b e\n"
+        Value         ".subckt Qbd180 c b e\n"
 "Q c b e Qbd180\n"
 ".ends\n"
 "\n"
