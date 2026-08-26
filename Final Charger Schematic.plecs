@@ -1042,8 +1042,8 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":165,\"Labels\":["
-"],\"VisualIdxs\":[]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":165,\"Labels\":[],"
+"\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -1115,10 +1115,10 @@ Plecs {
       Type          Netlist
       Name          "Netlist3"
       Show          off
-      Position      [505, 495]
-      Direction     up
+      Position      [485, 495]
+      Direction     down
       Flipped       off
-      LabelPosition south
+      LabelPosition north
       Frame         [-30, -15; 30, 15]
       IconDisplayCommands ""
       IconDisplayLanguage "2"
@@ -1291,7 +1291,7 @@ Plecs {
           Branch {
             Points        [595, 625]
             Branch {
-              Points        [485, 625]
+              Points        [505, 625]
               Branch {
                 Points        [340, 625]
                 DstComponent  "V_dc"
@@ -1299,7 +1299,7 @@ Plecs {
               }
               Branch {
                 DstComponent  "Netlist3"
-                DstTerminal   2
+                DstTerminal   1
               }
             }
             Branch {
@@ -1517,14 +1517,14 @@ Plecs {
       Type          Wire
       SrcComponent  "R11"
       SrcTerminal   1
-      Points        [485, 400]
+      Points        [505, 400]
       Branch {
         DstComponent  "R10"
         DstTerminal   1
       }
       Branch {
         DstComponent  "Netlist3"
-        DstTerminal   1
+        DstTerminal   2
       }
     }
     Annotation {
@@ -1537,7 +1537,7 @@ Plecs {
     Annotation {
       Name          "<html><body>\n<p>BZT52H-B3V3,115</p>\n<p>3.3V Zener Diode"
 "</p></body></html>"
-      Position      [430, 530]
+      Position      [440, 530]
     } 
   }
 }
