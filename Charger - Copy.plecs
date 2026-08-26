@@ -1,9 +1,9 @@
 Plecs {
-  Name          "Charger"
+  Name          "Charger - Copy"
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "0.5"
+  TimeSpan      "1"
   Timeout       ""
   Solver        "auto"
   MaxStep       "1e-5"
@@ -1012,6 +1012,20 @@ Plecs {
       }
     }
     Component {
+      Type          DCVoltageSource
+      Name          "V_dc1"
+      Show          on
+      Position      [465, 510]
+      Direction     down
+      Flipped       on
+      LabelPosition east
+      Parameter {
+        Variable      "V"
+        Value         "3.3"
+        Show          on
+      }
+    }
+    Component {
       Type          PlecsProbe
       Name          "Vr10"
       Show          on
@@ -1109,86 +1123,6 @@ Plecs {
         Variable      "R"
         Value         "5.6"
         Show          on
-      }
-    }
-    Component {
-      Type          Netlist
-      Name          "Netlist3"
-      Show          off
-      Position      [505, 495]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-30, -15; 30, 15]
-      IconDisplayCommands ""
-      IconDisplayLanguage "2"
-      IconFrame           on
-      IconOpaque          on
-      IconRotates         on
-      Parameter {
-        Variable      "Netlist"
-        Value         "*\n"
-"*******************************************\n"
-"*\n"
-"*BZT52H-B3V3\n"
-"*\n"
-"*NXP Semiconductors\n"
-"*\n"
-"*Single zener diode in a SOD123F package\n"
-"*\n"
-"*\n"
-"*\n"
-"*\n"
-"*VFmax = 0,9V  @ IF = 10mA  \n"
-"*\n"
-"*\n"
-"*\n"
-"*VZmax = 3,37V @ IZ = 5mA\n"
-"*\n"
-"*\n"
-"*\n"
-"*\n"
-"* \n"
-"*\n"
-"*\n"
-"*Package pinning does not match Spice model pinning.\n"
-"*Package: SOD123F\n"
-"*\n"
-"*Package Pin 1: Cathode\n"
-"*Package Pin 2: Anode\n"
-"* \n"
-"*\n"
-"*\n"
-"*Extraction date (week/year): 01/2016\n"
-"*Simulator: SPICE2\n"
-"*\n"
-"*******************************************\n"
-"*#\n"
-".SUBCKT BZT52H-B3V3 1 2     \n"
-"R1 1 2 1E+008   \n"
-"D1 1 2    DIODE1\n"
-"D2 3 1    DIODE2\n"
-"VZ 2 3 0.1      \n"
-".MODEL DIODE1 D   IS = 3.5E-012   N = 1.4         BV = 3.7        IBV = 0.005"
-"     RS = 0.3        CJO = 1.636E-010        VJ = 0.15       M = 0.135       "
-"FC = 0.5        TT = 0  EG = 1.1        XTI = 3       \n"
-".MODEL DIODE2 D   IS = 1.8E-008   N = 9   RS = 65       \n"
-".ENDS        "
-        Show          off
-      }
-      Terminal {
-        Type          Port
-        Position      [-20, -20]
-        Direction     up
-        Name          "1"
-        NetlistName   "1"
-      }
-      Terminal {
-        Type          Port
-        Position      [-20, 20]
-        Direction     down
-        Name          "2"
-        NetlistName   "2"
       }
     }
     Connection {
@@ -1291,14 +1225,14 @@ Plecs {
           Branch {
             Points        [595, 625]
             Branch {
-              Points        [485, 625]
+              Points        [465, 625]
               Branch {
                 Points        [340, 625]
                 DstComponent  "V_dc"
                 DstTerminal   2
               }
               Branch {
-                DstComponent  "Netlist3"
+                DstComponent  "V_dc1"
                 DstTerminal   2
               }
             }
@@ -1500,6 +1434,20 @@ Plecs {
       }
     }
     Connection {
+      Type          Wire
+      SrcComponent  "R11"
+      SrcTerminal   1
+      Points        [465, 400]
+      Branch {
+        DstComponent  "R10"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "V_dc1"
+        DstTerminal   1
+      }
+    }
+    Connection {
       Type          Signal
       SrcComponent  "Vr10"
       SrcTerminal   1
@@ -1513,20 +1461,6 @@ Plecs {
       DstComponent  "R12"
       DstTerminal   1
     }
-    Connection {
-      Type          Wire
-      SrcComponent  "R11"
-      SrcTerminal   1
-      Points        [485, 400]
-      Branch {
-        DstComponent  "R10"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "Netlist3"
-        DstTerminal   1
-      }
-    }
     Annotation {
       Name          "<html><body>\n<p><span style=\" font-weight:700; color:#0"
 "000b0;\">Charger Circuit</span></p>\n<p><span style=\" font-weight:700; color"
@@ -1537,7 +1471,7 @@ Plecs {
     Annotation {
       Name          "<html><body>\n<p>BZT52H-B3V3,115</p>\n<p>3.3V Zener Diode"
 "</p></body></html>"
-      Position      [430, 530]
+      Position      [405, 535]
     } 
   }
 }
