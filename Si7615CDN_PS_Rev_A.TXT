@@ -1,0 +1,38 @@
+********************************
+* Copyright:                   *
+* Vishay Intertechnology, Inc. *
+********************************
+*Nov 07, 2016
+*ECN S16-2187, Rev. A
+*File Name: Si7615CDN_PS.txt and Si7615CDN_PS.lib
+*This document is intended as a SPICE modeling guideline and does not
+*constitute a commercial product datasheet. Designers should refer to the
+*appropriate datasheet of the same number for guaranteed specification
+*limits.
+.SUBCKT Si7615CDN D G S 
+M1 3 GX S S PMOS W= 4217500u L= 0.30u 
+M2 S GX S D NMOS W= 4217500u L= 0.40u 
+R1 D 3 3.733e-03 TC=2.934e-03,2.767e-06
+CGS GX S 1.529e-09 
+CGD GX D 1.306e-10 
+RG G GY 1m 
+RTCV 100 S 1e6 TC=1.206e-03,-2.901e-06
+ETCV GY GX 100 200 1 
+ITCV S 100 1u 
+VTCV 200 S 1 
+DBD D S DBD 4217500u 
+**************************************************************** 
+.MODEL PMOS PMOS ( LEVEL = 3 TOX = 2e-8 
++ RS = 0 KP = 6.361e-06 NSUB = 1.924e+14 
++ KAPPA = 1.000e-06 NFS = 1.439e+11 
++ LD = 0 IS = 0 TPG = -1    )
+*************************************************************** 
+.MODEL NMOS NMOS ( LEVEL = 3 TOX = 2e-8 
++NSUB = 3.686e+16 IS = 0 TPG = -1    )
+**************************************************************** 
+.MODEL DBD D ( 
++FC = 0.1 TT = 3.558e-08 T_measured = 25 BV = 21
++RS = 4.168e-02 N = 1.335e+00 IS = 2.204e-08 
++EG = 1.031e+00 XTI = -5.591e+00 TRS1 = 1.000e-05
++CJO = 2.000e-11 VJ = 3.000e-01 M = 2.641e-01 ) 
+.ENDS 
