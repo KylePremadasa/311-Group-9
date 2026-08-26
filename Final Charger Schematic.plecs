@@ -1046,14 +1046,28 @@ Plecs {
       Type          Netlist
       Name          "Netlist3"
       Show          off
-      Position      [485, 495]
+      Position      [500, 510]
       Direction     down
       Flipped       off
       LabelPosition north
       Frame         [-30, -15; 30, 15]
-      IconDisplayCommands ""
+      IconDisplayCommands "-- Top lead\n"
+"Icon:line({0, 0}, {-30, -10})\n"
+"\n"
+"-- Diode triangle outline\n"
+"Icon:line({-12, 12, 0, -12}, {-10, -10, 10, -10})\n"
+"\n"
+"-- Zener cathode bar\n"
+"Icon:line({-12, 12}, {12, 12})\n"
+"\n"
+"-- Bent ends of Zener bar\n"
+"Icon:line({-12, -17}, {12, 17})\n"
+"Icon:line({12, 17}, {12, 7})\n"
+"\n"
+"-- Bottom lead\n"
+"Icon:line({0, 0}, {12, 30})"
       IconDisplayLanguage "2"
-      IconFrame           on
+      IconFrame           off
       IconOpaque          on
       IconRotates         on
       Parameter {
@@ -1109,14 +1123,14 @@ Plecs {
       }
       Terminal {
         Type          Port
-        Position      [-20, -20]
+        Position      [0, -20]
         Direction     up
         Name          "1"
         NetlistName   "1"
       }
       Terminal {
         Type          Port
-        Position      [-20, 20]
+        Position      [0, 20]
         Direction     down
         Name          "2"
         NetlistName   "2"
@@ -1586,7 +1600,7 @@ Plecs {
           Branch {
             Points        [595, 625]
             Branch {
-              Points        [505, 625]
+              Points        [500, 625]
               Branch {
                 Points        [340, 625]
                 DstComponent  "V_dc"
@@ -1823,20 +1837,6 @@ Plecs {
       DstTerminal   1
     }
     Connection {
-      Type          Wire
-      SrcComponent  "R11"
-      SrcTerminal   1
-      Points        [505, 400]
-      Branch {
-        DstComponent  "R10"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "Netlist3"
-        DstTerminal   2
-      }
-    }
-    Connection {
       Type          Signal
       SrcComponent  "Vout"
       SrcTerminal   1
@@ -1886,6 +1886,20 @@ Plecs {
       Points        [780, 90]
       DstComponent  "Vsource"
       DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "R11"
+      SrcTerminal   1
+      Points        [500, 400]
+      Branch {
+        DstComponent  "R10"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Netlist3"
+        DstTerminal   2
+      }
     }
     Annotation {
       Name          "<html><body>\n<p><span style=\" font-weight:700; color:#0"
