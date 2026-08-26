@@ -1268,76 +1268,6 @@ Plecs {
     }
     Component {
       Type          PlecsProbe
-      Name          "VSource"
-      Show          on
-      Position      [305, 250]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-    }
-    Component {
-      Type          Scope
-      Name          "Scope6"
-      Show          on
-      Position      [400, 250]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-15, -15; 15, 15]
-      Location      [0, 23; 1920, 1011]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADVfwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"AC2QAAAGIA////+wAAAAwAVAByAGEAYwBlAHMBAAADEwAAAHYAAABiAP///wAAAAMAAAeAAAAAYvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABEAP///wAABsYAAANVAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAIAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxP8AGj4NZQ"
-"GA/wDJMRFbtjAAAAAEAf/gAAAAAAAB/+AAAAAAAAAE/wBUuiTLgFT/AI5GPYu3vAAAAABgAUwBhAH"
-"YAZQBkACAAdgBpAGUAdwAgADI/wAaPg1lAYD/AMkxEVu2MAAAAAQB/+AAAAAAAAH/4AAAAAAAAAT/"
-"AFS6JMuAVP8AjkY9i7e8A"
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":165,\"Labels\":[\""
-"Delta\",\"Mean\"],\"VisualIdxs\":[3,8]}"
-      PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    "Time / s"
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency / Hz"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
-      Type          PlecsProbe
       Name          "Vrsense"
       Show          on
       Position      [490, 120]
@@ -1409,76 +1339,6 @@ Plecs {
       }
     }
     Component {
-      Type          PlecsProbe
-      Name          "VSource1"
-      Show          on
-      Position      [490, 170]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-    }
-    Component {
-      Type          Scope
-      Name          "Scope8"
-      Show          on
-      Position      [585, 170]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-15, -15; 15, 15]
-      Location      [0, 23; 1920, 1011]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADVfwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"AC2QAAAGIA////+wAAAAwAVAByAGEAYwBlAHMBAAADEwAAAHYAAABiAP///wAAAAMAAAeAAAAAYvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABEAP///wAABsYAAANVAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAIAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxP8AGj4NZQ"
-"GA/wDJMRFbtjAAAAAEAf/gAAAAAAAB/+AAAAAAAAAE/wBUuiTLgFT/AI5GPYu3vAAAAABgAUwBhAH"
-"YAZQBkACAAdgBpAGUAdwAgADI/wAaPg1lAYD/AMkxEVu2MAAAAAQB/+AAAAAAAAH/4AAAAAAAAAT/"
-"AFS6JMuAVP8AjkY9i7e8A"
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":165,\"Labels\":[\""
-"Delta\",\"Mean\"],\"VisualIdxs\":[3,8]}"
-      PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    "Time / s"
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency / Hz"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
       Type          Voltmeter
       Name          "Vm1"
       Show          on
@@ -1486,15 +1346,6 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition west
-    }
-    Component {
-      Type          Ground
-      Name          "Ground2"
-      Show          off
-      Position      [885, 430]
-      Direction     up
-      Flipped       off
-      LabelPosition east
     }
     Component {
       Type          Ground
@@ -2001,23 +1852,9 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "VSource"
-      SrcTerminal   1
-      DstComponent  "Scope6"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Vrsense"
       SrcTerminal   1
       DstComponent  "Scope7"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "VSource1"
-      SrcTerminal   1
-      DstComponent  "Scope8"
       DstTerminal   1
     }
     Connection {
