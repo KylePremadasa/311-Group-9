@@ -1,5 +1,5 @@
 Plecs {
-  Name          "Charger Schematic (Vbe 0.3) - Copy"
+  Name          "Charger Schematic (Vbe 0.3) - WRONG"
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -87,20 +87,6 @@ Plecs {
       Parameter {
         Variable      "V"
         Value         "5"
-        Show          on
-      }
-    }
-    Component {
-      Type          Resistor
-      Name          "R1"
-      Show          on
-      Position      [1365, 480]
-      Direction     up
-      Flipped       off
-      LabelPosition east
-      Parameter {
-        Variable      "R"
-        Value         "50"
         Show          on
       }
     }
@@ -467,7 +453,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "R"
-        Value         "1.2e3"
+        Value         "1e3"
         Show          on
       }
     }
@@ -499,7 +485,7 @@ Plecs {
       LabelPosition west
       Parameter {
         Variable      "C"
-        Value         "330e-9"
+        Value         "33e-9"
         Show          on
       }
       Parameter {
@@ -1063,11 +1049,6 @@ Plecs {
       Direction     right
       Flipped       off
       LabelPosition south
-      Probe {
-        Component     "R1"
-        Path          ""
-        Signals       {"Resistor current", "Resistor voltage"}
-      }
     }
     Component {
       Type          Scope
@@ -1579,117 +1560,6 @@ Plecs {
       LabelPosition west
     }
     Component {
-      Type          Voltmeter
-      Name          "Vm5"
-      Show          on
-      Position      [910, 570]
-      Direction     up
-      Flipped       off
-      LabelPosition west
-    }
-    Component {
-      Type          Ground
-      Name          "Ground6"
-      Show          off
-      Position      [910, 600]
-      Direction     up
-      Flipped       off
-      LabelPosition east
-    }
-    Component {
-      Type          Scope
-      Name          "Scope8"
-      Show          on
-      Position      [975, 570]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1920, 1057]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADjvwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"ADCgAAAGIA////+wAAAAwAVAByAGEAYwBlAHMBAAADRAAAAH4AAABiAP///wAAAAMAAAeAAAAAVvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABEAP///wAABsYAAAOOAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":184,\"Labels\":[\""
-"Delta\",\"Mean\"],\"VisualIdxs\":[3,8]}"
-      PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    "Time / s"
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency / Hz"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
-      Type          Label
-      Name          "Label3"
-      Show          off
-      Position      [1080, 570]
-      Direction     down
-      Flipped       off
-      LabelPosition west
-      Parameter {
-        Variable      "Tag"
-        Value         "VREF"
-        Show          off
-      }
-      Parameter {
-        Variable      "Visibility"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "NoMatchingCounterpartAction"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "CustomMessage"
-        Value         ""
-        Show          off
-        Evaluate      on
-      }
-      Parameter {
-        Variable      "HighlightLevel"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
       Type          Resistor
       Name          "R9"
       Show          on
@@ -1722,6 +1592,74 @@ Plecs {
         Show          on
       }
     }
+    Component {
+      Type          Label
+      Name          "Label3"
+      Show          off
+      Position      [1075, 485]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "VREF"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "CustomMessage"
+        Value         ""
+        Show          off
+        Evaluate      on
+      }
+      Parameter {
+        Variable      "HighlightLevel"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Capacitor
+      Name          "C2"
+      Show          on
+      Position      [1355, 435]
+      Direction     down
+      Flipped       on
+      LabelPosition west
+      Parameter {
+        Variable      "C"
+        Value         "30"
+        Show          on
+      }
+      Parameter {
+        Variable      "v_init"
+        Value         "0"
+        Show          on
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R15"
+      Show          on
+      Position      [1355, 510]
+      Direction     down
+      Flipped       on
+      LabelPosition west
+      Parameter {
+        Variable      "R"
+        Value         "0.2"
+        Show          on
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Vopamp"
@@ -1741,8 +1679,8 @@ Plecs {
           DstTerminal   1
         }
         Branch {
-          Points        [1365, 295]
-          DstComponent  "R1"
+          Points        [1355, 295]
+          DstComponent  "C2"
           DstTerminal   1
         }
       }
@@ -1756,35 +1694,6 @@ Plecs {
           Points        [865, 295; 865, 315]
           DstComponent  "Netlist"
           DstTerminal   1
-        }
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "R5"
-      SrcTerminal   1
-      Points        [1190, 485]
-      Branch {
-        DstComponent  "R4"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [1125, 485]
-        Branch {
-          DstComponent  "C3"
-          DstTerminal   2
-        }
-        Branch {
-          Points        [1065, 485]
-          Branch {
-            DstComponent  "Netlist1"
-            DstTerminal   2
-          }
-          Branch {
-            Points        [1065, 350]
-            DstComponent  "C5"
-            DstTerminal   1
-          }
         }
       }
     }
@@ -1847,8 +1756,8 @@ Plecs {
           DstTerminal   2
         }
         Branch {
-          Points        [1365, 625]
-          DstComponent  "R1"
+          Points        [1355, 625]
+          DstComponent  "R15"
           DstTerminal   2
         }
       }
@@ -1917,33 +1826,33 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "R6"
+      SrcComponent  "Vm1"
       SrcTerminal   1
-      Points        [840, 505]
+      Points        [880, 195; 880, 360; 840, 360]
       Branch {
-        Points        [815, 505; 815, 410; 760, 410]
+        Points        [840, 420]
         Branch {
-          DstComponent  "R3"
-          DstTerminal   2
+          Points        [840, 505]
+          DstComponent  "R6"
+          DstTerminal   1
         }
         Branch {
-          Points        [720, 410]
-          DstComponent  "Netlist2"
-          DstTerminal   1
+          Points        [760, 420]
+          Branch {
+            DstComponent  "R3"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [720, 420]
+            DstComponent  "Netlist2"
+            DstTerminal   1
+          }
         }
       }
       Branch {
-        Points        [840, 360]
-        Branch {
-          Points        [880, 360; 880, 195]
-          DstComponent  "Vm1"
-          DstTerminal   1
-        }
-        Branch {
-          Points        [810, 360; 810, 315]
-          DstComponent  "Netlist"
-          DstTerminal   2
-        }
+        Points        [810, 360; 810, 315]
+        DstComponent  "Netlist"
+        DstTerminal   2
       }
     }
     Connection {
@@ -2132,30 +2041,12 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "Ground6"
-      SrcTerminal   1
-      DstComponent  "Vm5"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm5"
-      SrcTerminal   3
-      DstComponent  "Scope8"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "R6"
       SrcTerminal   2
       Points        [910, 505]
       Branch {
         DstComponent  "Netlist1"
         DstTerminal   5
-      }
-      Branch {
-        DstComponent  "Vm5"
-        DstTerminal   1
       }
       Branch {
         Points        [910, 350]
@@ -2165,18 +2056,54 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "Netlist1"
-      SrcTerminal   1
-      Points        [1080, 525]
-      DstComponent  "Label3"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "R9"
       SrcTerminal   1
       DstComponent  "C5"
       DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Netlist1"
+      SrcTerminal   2
+      Points        [1065, 485]
+      Branch {
+        Points        [1065, 350]
+        DstComponent  "C5"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Label3"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "R5"
+      SrcTerminal   1
+      Points        [1190, 480]
+      Branch {
+        DstComponent  "R4"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [1125, 480]
+        Branch {
+          Points        [1125, 525]
+          DstComponent  "Netlist1"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "C3"
+          DstTerminal   2
+        }
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "C2"
+      SrcTerminal   2
+      DstComponent  "R15"
+      DstTerminal   1
     }
     Annotation {
       Name          "<html><body>\n<p><span style=\" font-weight:700; color:#0"
