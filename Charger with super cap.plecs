@@ -71,7 +71,7 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [0, 23; 1920, 989]
+    Location      [0, 24; 1920, 990]
     ZoomFactor    1.30957
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -331,7 +331,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -1372,7 +1372,7 @@ Plecs {
       LabelPosition west
       Parameter {
         Variable      "C"
-        Value         "30"
+        Value         "15"
         Show          on
       }
       Parameter {
@@ -1721,4 +1721,4 @@ Plecs {
     }
   }
 }
-DemoSignature "gIvTppeQWuENyl0IUSjV+JEQDqMzG26iPWKAavwDh0k="
+DemoSignature "15Pw0JINTRR3oSxEOjC5C8yWbz1i84nXF9YSXGzskGA="
