@@ -1,5 +1,5 @@
 Plecs {
-  Name          "Charger with breaker"
+  Name          "Charger with breaker (FINAL - USE FOR ALTIUM)"
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -3170,6 +3170,20 @@ Plecs {
         Show          on
       }
     }
+    Component {
+      Type          Resistor
+      Name          "R20"
+      Show          on
+      Position      [1440, 95]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "R"
+        Value         "0.2"
+        Show          on
+      }
+    }
     Connection {
       Type          Wire
       SrcComponent  "Netlist"
@@ -3440,8 +3454,16 @@ Plecs {
             }
           }
           Branch {
-            DstComponent  "Netlist6"
-            DstTerminal   5
+            Points        [1265, 235]
+            Branch {
+              DstComponent  "Netlist6"
+              DstTerminal   5
+            }
+            Branch {
+              Points        [1265, 95]
+              DstComponent  "R20"
+              DstTerminal   2
+            }
           }
           Branch {
             DstComponent  "Vm3"
@@ -3696,13 +3718,6 @@ Plecs {
       DstTerminal   2
     }
     Connection {
-      Type          Wire
-      SrcComponent  "Netlist6"
-      SrcTerminal   6
-      DstComponent  "Am1"
-      DstTerminal   1
-    }
-    Connection {
       Type          Signal
       SrcComponent  "Am1"
       SrcTerminal   3
@@ -3731,6 +3746,21 @@ Plecs {
       DstComponent  "R11"
       DstTerminal   1
     }
+    Connection {
+      Type          Wire
+      SrcComponent  "Netlist6"
+      SrcTerminal   6
+      Points        [1600, 235]
+      Branch {
+        DstComponent  "Am1"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [1600, 95]
+        DstComponent  "R20"
+        DstTerminal   1
+      }
+    }
   }
 }
-DemoSignature "PGhTjryLJXzg8Mrwi/vSGixjk+GqWK5r94OdjPuiUWs="
+DemoSignature "5CcoZ8ddTFuieeieR1iFyp3mqjaQkpOnMr5fjArIbRE="
