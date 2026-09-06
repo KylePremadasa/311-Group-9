@@ -36,7 +36,10 @@ ConstraintManagerFlow=0
 IsVirtualBomDocumentRemoved=0
 OutputPath=
 LogFolderPath=
-ManagedProjectGUID=
+ManagedProjectGUID=4D6FA126-CC15-4A2F-B333-2F77B6E3EA16
+VaultGUID=516A4F3C-D1E6-4A55-BD33-C2AD9E6F6752
+ReleaseVaultName=Kyle Premadasa
+ItemGUID=4D6FA126-CC15-4A2F-B333-2F77B6E3EA16
 IncludeDesignInRelease=0
 CrossRefSheetStyle=1
 CrossRefLocationStyle=1
@@ -50,13 +53,13 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=EE311_Example_Boost_Sch.SchDoc
+DocumentPath=EE311_Charger.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=0
+AnnotateOrder=-1
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -67,7 +70,7 @@ GenerateClassCluster=0
 DocumentUniqueId=NGZULUCD
 
 [Document2]
-DocumentPath=EE311_Example_Boost_PCB.PcbDoc
+DocumentPath=EE311_Charger_PCB.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -101,7 +104,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document4]
-DocumentPath=EE311_Example_Boost_BOM.BomDoc
+DocumentPath=EE311_Charger_BOM.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
