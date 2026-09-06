@@ -71,9 +71,9 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [0, 24; 1920, 990]
+    Location      [0, 24; 1539, 825]
     ZoomFactor    0.999997
-    SliderPosition [0, 0]
+    SliderPosition [160, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -2026,7 +2026,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "R"
-        Value         "1.8e3"
+        Value         "22e3"
         Show          on
       }
     }
@@ -2040,7 +2040,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "R"
-        Value         "1.8e3"
+        Value         "1.5e3"
         Show          on
       }
     }
@@ -2054,7 +2054,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "R"
-        Value         "1.8e3"
+        Value         "330e3"
         Show          on
       }
     }
@@ -3763,4 +3763,3 @@ Plecs {
     }
   }
 }
-DemoSignature "5CcoZ8ddTFuieeieR1iFyp3mqjaQkpOnMr5fjArIbRE="
