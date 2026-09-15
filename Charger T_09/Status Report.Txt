@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [EE311_Example_Boost.PrjPcb]
+   Generated File[EE311_Charger_PCB-Plated.TXT]
+   Generated File[EE311_Charger_PCB.LDP]
+   Generated File[EE311_Charger_PCB.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 12:27:37 am On 7/09/2026
