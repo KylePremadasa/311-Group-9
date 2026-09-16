@@ -36,10 +36,7 @@ ConstraintManagerFlow=0
 IsVirtualBomDocumentRemoved=0
 OutputPath=
 LogFolderPath=
-ManagedProjectGUID=4D6FA126-CC15-4A2F-B333-2F77B6E3EA16
-VaultGUID=516A4F3C-D1E6-4A55-BD33-C2AD9E6F6752
-ReleaseVaultName=Kyle Premadasa
-ItemGUID=4D6FA126-CC15-4A2F-B333-2F77B6E3EA16
+ManagedProjectGUID=
 IncludeDesignInRelease=0
 CrossRefSheetStyle=1
 CrossRefLocationStyle=1
@@ -53,13 +50,13 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=EE311_Charger.SchDoc
+DocumentPath=EE311_Example_Boost_Sch.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=0
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -70,7 +67,7 @@ GenerateClassCluster=0
 DocumentUniqueId=NGZULUCD
 
 [Document2]
-DocumentPath=EE311_Charger_PCB.PcbDoc
+DocumentPath=EE311_Example_Boost_PCB.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -104,7 +101,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document4]
-DocumentPath=EE311_Charger_BOM.BomDoc
+DocumentPath=EE311_Example_Boost_BOM.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -189,23 +186,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document9]
-DocumentPath=..\ul_TLV9162IDR\Altium\TLV9162IDR.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document10]
 DocumentPath=..\ul_TLV9162IDR\Altium\ImportGuide.html
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -222,7 +202,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document11]
+[Document10]
 DocumentPath=..\ul_TLV9162IDR\Altium\SOIC8_D_TEX.step
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -239,7 +219,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document12]
+[Document11]
 DocumentPath=..\ul_TLV9162IDR\Altium\TLV9162IDR.LibPkg
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -256,24 +236,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
-DocumentPath=..\ul_TLV9162IDR\Altium\TLV9162IDR.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=ECRGSMKJ
-
-[Document14]
+[Document12]
 DocumentPath=..\IRF4905PBF.zip
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -290,7 +253,24 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document13]
+DocumentPath=..\ul_TLV9162IDR\Altium\TLV9162IDR.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=JMSTGYEA
+
+[Document14]
 DocumentPath=..\IRF4905.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -307,7 +287,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TCKBUQMD
 
-[Document16]
+[Document15]
 DocumentPath=..\AUIRF4905.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -322,9 +302,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=JPBNKCDL
 
-[Document17]
+[Document16]
 DocumentPath=..\IFX-PG-TO220-3-904-1.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -339,9 +319,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=PAJNSVCW
 
-[Document18]
+[Document17]
 DocumentPath=..\IRF4905PBF (1)\Altium\AUIRF4905.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -356,9 +336,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=TOIQZFBF
 
-[Document19]
+[Document18]
 DocumentPath=..\IRF4905PBF (1)\Altium\IFX-PG-TO220-3-904-1.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -373,9 +353,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=GTYRYHET
 
-[Document20]
+[Document19]
 DocumentPath=..\IRF4905PBF (1)\Altium\IRF4905.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -390,9 +370,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=WNBWDMBQ
 
-[Document21]
+[Document20]
 DocumentPath=..\LM393DR\Altium\LM393DR\LM393DR.LibPkg
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -409,7 +389,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document22]
+[Document21]
 DocumentPath=..\LM393DR\Altium\LM393DR\LM393DR.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -424,9 +404,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=TCJTNNQO
 
-[Document23]
+[Document22]
 DocumentPath=..\LM393DR\Altium\LM393DR\LM393DR.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -441,9 +421,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=THGNEILU
 
-[Document24]
+[Document23]
 DocumentPath=..\ul_CD4043BE.zip
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -460,7 +440,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document25]
+[Document24]
 DocumentPath=..\ul_CD4043BE\Altium\CD4043BE\CD4043BE.LibPkg
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -477,7 +457,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document26]
+[Document25]
 DocumentPath=..\ul_CD4043BE\Altium\CD4043BE\CD4043BE.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -494,7 +474,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VNDEIYCK
 
-[Document27]
+[Document26]
 DocumentPath=..\ul_CD4043BE\Altium\CD4043BE\CD4043BE.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -509,9 +489,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=VDBFQGJR
 
-[Document28]
+[Document27]
 DocumentPath=..\ul_TPS22917DBVR\Altium\TPS22917DBVR\TPS22917DBVR.LibPkg
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -528,7 +508,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document29]
+[Document28]
 DocumentPath=..\ul_TPS22917DBVR\Altium\TPS22917DBVR\TPS22917DBVR.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -543,10 +523,27 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=XRGIXCQY
+
+[Document29]
+DocumentPath=..\ul_TPS22917DBVR\Altium\TPS22917DBVR\TPS22917DBVR.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=TCAZHOED
 
 [Document30]
-DocumentPath=..\ul_TPS22917DBVR\Altium\TPS22917DBVR\TPS22917DBVR.SchLib
+DocumentPath=..\SWT0315-065025GSA_REVA (1).IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -563,7 +560,211 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document31]
-DocumentPath=..\SWT0315-065025GSA_REVA (1).IntLib
+DocumentPath=..\BC807-40-215\BC807-40,215.LibPkg
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document32]
+DocumentPath=..\BC807-40-215\BC807-40,215.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=SEHPOFKQ
+
+[Document33]
+DocumentPath=..\BC807-40-215\BC807-40,215.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=TVKLDIEU
+
+[Document34]
+DocumentPath=..\CD4043BDR\Altium\CD4043BDR\CD4043BDR.LibPkg
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document35]
+DocumentPath=..\CD4043BDR\Altium\CD4043BDR\CD4043BDR.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=TUWDUFIU
+
+[Document36]
+DocumentPath=..\CD4043BDR\Altium\CD4043BDR\CD4043BDR.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=BDPEPALP
+
+[Document37]
+DocumentPath=..\LIB_BZT52C3V3S-TP\BZT52C3V3S-TP\Altium\BZT52C3V3S-TP.epw
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document38]
+DocumentPath=..\LIB_BZT52C3V3S-TP\BZT52C3V3S-TP\Altium\BZT52C3V3S-TP.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=BKRHSYZR
+
+[Document39]
+DocumentPath=..\LIB_BZT52C3V3S-TP\BZT52C3V3S-TP\Altium\Readme.html
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document40]
+DocumentPath=..\LIB_BZT52C3V3S-TP\BZT52C3V3S-TP\Altium\SOD2512X115N.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=BJIPDNLZ
+
+[Document41]
+DocumentPath=..\TLV9162IDR.LibPkg
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document42]
+DocumentPath=..\TLV9162IDR.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document43]
+DocumentPath=..\TLV9162IDR.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -1572,10 +1773,16 @@ NetClassManualEnabled=1
 NetClassSeparateForBusSections=0
 
 [LibraryUpdateOptions]
-SelectedOnly=0
+SelectedOnly=1
 UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
+ComponentLibIdentifierKind0=Library Name And Type
+ComponentLibraryIdentifier0=EceParts.SchLib
+ComponentDesignItemID0=LM358
+ComponentSymbolReference0=LM358
+ComponentUpdate0=1
+ComponentIsDeviceSheet0=0
 FullReplace=1
 UpdateDesignatorLock=1
 UpdatePartIDLock=1
@@ -1589,6 +1796,14 @@ RemoveParameters=0
 AddModels=1
 RemoveModels=1
 UpdateCurrentModels=1
+ParameterName0=Comment
+ParameterUpdate0=1
+ParameterName1=Component Kind
+ParameterUpdate1=1
+ParameterName2=Description
+ParameterUpdate2=1
+ParameterName3=Library Reference
+ParameterUpdate3=1
 
 [DatabaseUpdateOptions]
 SelectedOnly=0
