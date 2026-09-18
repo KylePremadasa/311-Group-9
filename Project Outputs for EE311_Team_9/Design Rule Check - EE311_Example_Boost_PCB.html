@@ -1,0 +1,564 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD26\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">18/09/2026</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">1:43:48 pm</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc" class="file"><acronym title="C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc">C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">68</td></tr>
+</table>
+</td>
+</table><a name="IDYO4QMTF4IKC1PVA1Z3QQEPIJONKREV2RGDQEETGDEXQJB4ORXMZJ"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBAATS2Q5DSZMIIRX30YWHSMOGMDS353T0R0KL3GPB2AJWLRGMGQN">Clearance Constraint (Gap=0.381mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOIMNTAWEOHHXDCJDZX3MH2WUOH0ZE0LQU4X1SHPFHU2OUA4OGULC">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEUAZHVU2W4UJJ0ZJVG1MKX5DRJ4BHLNXLXRSG5H0N005CMXLMVOE">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">13</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0LACVKMYY2Z1HCL11MP4G0S2FOPNBHIJWAF2AFFOLTMTSUTEOERJ">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDE0NFIZIIV3GYNZCMZWN3YRKEHHWYLU3SPTVMZEE2C1U2YQHTAHF">Width Constraint (Min=0.127mm) (Max=10.16mm) (Preferred=0.508mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3VWK2DXQ3DA5IM0SML0PAW5OZGSSG2H51CPJYBLVLP4Q14YZKNDC">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHHDA3ZF4FUEXBVZEWYLXX4BZHJIEUIUNXGT0WRH4IO530VCEUCCJ">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNHPUZLIDCL4VNBA5UYRKAHDXWMVVEHHJC0T1HREOTUXGXG0KYKOF">Minimum Annular Ring (Minimum=0.13mm) (All)</a></td>
+<td class="column2">26</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDALKVTHHYDLYWGURH4LXVFLAHJPFAOBAFEFL1LBJV0JA40PTPXWVH">Hole Size Constraint (Min=0.25mm) (Max=12mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDWWGKO5TNBQBPH4YAW52HGZSYTKK5AHQIKLUSLYFJ2HUODXUAHZAD">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAPXJDZY3YGTDGHUPEB0Z4LFTPG1FSNO3MEHAVFC0P3KFOWAPIOUJ">Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTSIVQSBINSE3KKLUHVUCZLHD2JYBRNKP3CK5NKF42I4MKWHIXYPN">Silk To Solder Mask (Clearance=0.1mm) (IsPad),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKAKENFNE5QIUICZKZINB3QWATN1UFQI1TDFMFJBAFGJ01AG0XV0E">Silk to Silk (Clearance=0.1mm) (All),(All)</a></td>
+<td class="column2">19</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPH5M5BLTWMATJITSGCRC35HI2DZ3LZI4BTBPKTLYVZG5CS5SVVJC">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJ2XBNKVDQQYICHGLFYD0K4AKOF2LVTDDR0CXXOH12YVUY5WG4AUK">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDWPD0Q2UVYA1NJYIXB1JXUXTFOLC5DQKZGU3RPKBDERKB12UGBHDF">Height Constraint (Min=0mm) (Max=50mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">68</td>
+</tr>
+</table><br><a name="IDEUAZHVU2W4UJJ0ZJVG1MKX5DRJ4BHLNXLXRSG5H0N005CMXLMVOE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1499.981mil|Location2.X=4150mil|Location1.Y=1800mil|Location2.Y=4475mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1499.981mil|Location2.X=4150mil|Location1.Y=1800mil|Location2.Y=4475mil|Absolute=True">Un-Routed Net Constraint: Polygon  (NONET_L01_P001) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3270mil|Location2.X=3315mil|Location1.Y=2050mil|Location2.Y=2090mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3270mil|Location2.X=3315mil|Location1.Y=2050mil|Location2.Y=2090mil|Absolute=True">Un-Routed Net Constraint: Polygon  (NONET_L01_P002) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1669mil|Location2.X=1689mil|Location1.Y=2331mil|Location2.Y=3407mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1669mil|Location2.X=1689mil|Location1.Y=2331mil|Location2.Y=3407mil|Absolute=True">Un-Routed Net Constraint: Track (42.647mm,59.461mm)(42.647mm,86.284mm) on Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1669mil|Location2.X=2145mil|Location1.Y=1875mil|Location2.Y=2351mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1669mil|Location2.X=2145mil|Location1.Y=1875mil|Location2.Y=2351mil|Absolute=True">Un-Routed Net Constraint: Track (42.647mm,59.461mm)(54.229mm,47.879mm) on Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1669mil|Location2.X=2125mil|Location1.Y=3387mil|Location2.Y=3843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1669mil|Location2.X=2125mil|Location1.Y=3387mil|Location2.Y=3843mil|Absolute=True">Un-Routed Net Constraint: Track (42.647mm,86.284mm)(53.721mm,97.358mm) on Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2105mil|Location2.X=3278mil|Location1.Y=3823mil|Location2.Y=3843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2105mil|Location2.X=3278mil|Location1.Y=3823mil|Location2.Y=3843mil|Absolute=True">Un-Routed Net Constraint: Track (53.721mm,97.358mm)(83.007mm,97.358mm) on Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3258mil|Location2.X=3303mil|Location1.Y=3823mil|Location2.Y=3868mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3258mil|Location2.X=3303mil|Location1.Y=3823mil|Location2.Y=3868mil|Absolute=True">Un-Routed Net Constraint: Track (83.007mm,97.358mm)(83.642mm,97.993mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3283mil|Location2.X=3410.74mil|Location1.Y=3848mil|Location2.Y=3868mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3283mil|Location2.X=3410.74mil|Location1.Y=3848mil|Location2.Y=3868mil|Absolute=True">Un-Routed Net Constraint: Track (83.642mm,97.993mm)(86.379mm,97.993mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3390.74mil|Location2.X=3428.74mil|Location1.Y=3795mil|Location2.Y=3868mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3390.74mil|Location2.X=3428.74mil|Location1.Y=3795mil|Location2.Y=3868mil|Absolute=True">Un-Routed Net Constraint: Track (86.379mm,97.993mm)(86.836mm,96.647mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3408.74mil|Location2.X=3428.74mil|Location1.Y=3708.26mil|Location2.Y=3815mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3408.74mil|Location2.X=3428.74mil|Location1.Y=3708.26mil|Location2.Y=3815mil|Absolute=True">Un-Routed Net Constraint: Track (86.836mm,94.444mm)(86.836mm,96.647mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3408.74mil|Location2.X=3557mil|Location1.Y=3580mil|Location2.Y=3728.26mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3408.74mil|Location2.X=3557mil|Location1.Y=3580mil|Location2.Y=3728.26mil|Absolute=True">Un-Routed Net Constraint: Track (86.836mm,94.444mm)(90.094mm,91.186mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3537mil|Location2.X=3617.75mil|Location1.Y=3580mil|Location2.Y=3600mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3537mil|Location2.X=3617.75mil|Location1.Y=3580mil|Location2.Y=3600mil|Absolute=True">Un-Routed Net Constraint: Track (90.094mm,91.186mm)(91.637mm,91.186mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3251.205mil|Location2.X=3284.795mil|Location1.Y=3816.205mil|Location2.Y=3849.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3251.205mil|Location2.X=3284.795mil|Location1.Y=3816.205mil|Location2.Y=3849.795mil|Absolute=True">Un-Routed Net Constraint: Via (83.007mm,97.358mm) from Top Layer to Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDNHPUZLIDCL4VNBA5UYRKAHDXWMVVEHHJC0T1HREOTUXGXG0KYKOF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Annular Ring (Minimum=0.13mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4081.186mil|Location2.X=4087.554mil|Location1.Y=2684.151mil|Location2.Y=2690.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4081.186mil|Location2.X=4087.554mil|Location1.Y=2684.151mil|Location2.Y=2690.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (103.743mm,67.996mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1713.988mil|Location2.X=1720.356mil|Location1.Y=2621.979mil|Location2.Y=2628.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1713.988mil|Location2.X=1720.356mil|Location1.Y=2621.979mil|Location2.Y=2628.347mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (43.616mm,66.417mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1766.816mil|Location2.X=1773.184mil|Location1.Y=2417.151mil|Location2.Y=2423.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1766.816mil|Location2.X=1773.184mil|Location1.Y=2417.151mil|Location2.Y=2423.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (44.958mm,61.214mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1829.816mil|Location2.X=1836.184mil|Location1.Y=3365.151mil|Location2.Y=3371.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1829.816mil|Location2.X=1836.184mil|Location1.Y=3365.151mil|Location2.Y=3371.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (46.558mm,85.293mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2206.816mil|Location2.X=2213.184mil|Location1.Y=3626.151mil|Location2.Y=3632.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2206.816mil|Location2.X=2213.184mil|Location1.Y=3626.151mil|Location2.Y=3632.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (56.134mm,91.923mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2351.816mil|Location2.X=2358.184mil|Location1.Y=3424.151mil|Location2.Y=3430.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2351.816mil|Location2.X=2358.184mil|Location1.Y=3424.151mil|Location2.Y=3430.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (59.817mm,86.792mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2437.816mil|Location2.X=2444.184mil|Location1.Y=2643.151mil|Location2.Y=2649.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2437.816mil|Location2.X=2444.184mil|Location1.Y=2643.151mil|Location2.Y=2649.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (62.001mm,66.954mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.816mil|Location2.X=2464.184mil|Location1.Y=3626.151mil|Location2.Y=3632.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.816mil|Location2.X=2464.184mil|Location1.Y=3626.151mil|Location2.Y=3632.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (62.509mm,91.923mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2476.816mil|Location2.X=2483.184mil|Location1.Y=3072.151mil|Location2.Y=3078.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2476.816mil|Location2.X=2483.184mil|Location1.Y=3072.151mil|Location2.Y=3078.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (62.992mm,77.851mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2622.54mil|Location2.X=2628.908mil|Location1.Y=1972.875mil|Location2.Y=1979.243mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2622.54mil|Location2.X=2628.908mil|Location1.Y=1972.875mil|Location2.Y=1979.243mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (66.693mm,49.929mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2732.446mil|Location2.X=2738.814mil|Location1.Y=2082.781mil|Location2.Y=2089.149mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2732.446mil|Location2.X=2738.814mil|Location1.Y=2082.781mil|Location2.Y=2089.149mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (69.485mm,52.721mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2738.816mil|Location2.X=2745.184mil|Location1.Y=2925.151mil|Location2.Y=2931.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2738.816mil|Location2.X=2745.184mil|Location1.Y=2925.151mil|Location2.Y=2931.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (69.647mm,74.117mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2776.816mil|Location2.X=2783.184mil|Location1.Y=3525.933mil|Location2.Y=3532.301mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2776.816mil|Location2.X=2783.184mil|Location1.Y=3525.933mil|Location2.Y=3532.301mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (70.612mm,89.377mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2780.746mil|Location2.X=2787.114mil|Location1.Y=2563.151mil|Location2.Y=2569.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2780.746mil|Location2.X=2787.114mil|Location1.Y=2563.151mil|Location2.Y=2569.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (70.712mm,64.922mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2951.816mil|Location2.X=2958.184mil|Location1.Y=3442.151mil|Location2.Y=3448.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2951.816mil|Location2.X=2958.184mil|Location1.Y=3442.151mil|Location2.Y=3448.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (75.057mm,87.249mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2972.816mil|Location2.X=2979.184mil|Location1.Y=2563.151mil|Location2.Y=2569.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2972.816mil|Location2.X=2979.184mil|Location1.Y=2563.151mil|Location2.Y=2569.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (75.59mm,64.922mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2997.816mil|Location2.X=3004.184mil|Location1.Y=2926.151mil|Location2.Y=2932.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2997.816mil|Location2.X=3004.184mil|Location1.Y=2926.151mil|Location2.Y=2932.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (76.225mm,74.143mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3106.816mil|Location2.X=3113.184mil|Location1.Y=2588.151mil|Location2.Y=2594.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3106.816mil|Location2.X=3113.184mil|Location1.Y=2588.151mil|Location2.Y=2594.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (78.994mm,65.557mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3160.398mil|Location2.X=3166.766mil|Location1.Y=4042.151mil|Location2.Y=4048.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3160.398mil|Location2.X=3166.766mil|Location1.Y=4042.151mil|Location2.Y=4048.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (80.355mm,102.489mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3264.816mil|Location2.X=3271.184mil|Location1.Y=3840.151mil|Location2.Y=3846.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3264.816mil|Location2.X=3271.184mil|Location1.Y=3840.151mil|Location2.Y=3846.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (83.007mm,97.358mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3329.816mil|Location2.X=3336.184mil|Location1.Y=2417.151mil|Location2.Y=2423.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3329.816mil|Location2.X=3336.184mil|Location1.Y=2417.151mil|Location2.Y=2423.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (84.658mm,61.214mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.186mil|Location2.X=3342.554mil|Location1.Y=2782.623mil|Location2.Y=2788.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.186mil|Location2.X=3342.554mil|Location1.Y=2782.623mil|Location2.Y=2788.991mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (84.82mm,70.497mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3556.816mil|Location2.X=3563.184mil|Location1.Y=3347.151mil|Location2.Y=3353.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3556.816mil|Location2.X=3563.184mil|Location1.Y=3347.151mil|Location2.Y=3353.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (90.424mm,84.836mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3643.076mil|Location2.X=3649.444mil|Location1.Y=2872.151mil|Location2.Y=2878.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3643.076mil|Location2.X=3649.444mil|Location1.Y=2872.151mil|Location2.Y=2878.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (92.615mm,72.771mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3649.816mil|Location2.X=3656.184mil|Location1.Y=2613.151mil|Location2.Y=2619.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3649.816mil|Location2.X=3656.184mil|Location1.Y=2613.151mil|Location2.Y=2619.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (92.786mm,66.192mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3806.186mil|Location2.X=3812.554mil|Location1.Y=2456.781mil|Location2.Y=2463.149mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3806.186mil|Location2.X=3812.554mil|Location1.Y=2456.781mil|Location2.Y=2463.149mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (96.758mm,62.221mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAPXJDZY3YGTDGHUPEB0Z4LFTPG1FSNO3MEHAVFC0P3KFOWAPIOUJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3107.407mil|Location2.X=3112.593mil|Location1.Y=2560.217mil|Location2.Y=2565.404mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3107.407mil|Location2.X=3112.593mil|Location1.Y=2560.217mil|Location2.Y=2565.404mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.1mm) Between Pad U6-6(78.994mm,64.56mm) on Top Layer And Via (78.994mm,65.557mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDTSIVQSBINSE3KKLUHVUCZLHD2JYBRNKP3CK5NKF42I4MKWHIXYPN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.1mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3622.013mil|Location2.X=3627.2mil|Location1.Y=2675.186mil|Location2.Y=2680.373mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3622.013mil|Location2.X=3627.2mil|Location1.Y=2675.186mil|Location2.Y=2680.373mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.011mm &lt; 0.1mm) Between Pad C4-1(92.615mm,67.31mm) on Top Layer And Text "R22" (88.468mm,68.148mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.011mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3606.149mil|Location2.X=3609.773mil|Location1.Y=3086.168mil|Location2.Y=3089.793mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3606.149mil|Location2.X=3609.773mil|Location1.Y=3086.168mil|Location2.Y=3089.793mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.1mm) Between Pad R4-1(92.456mm,78.613mm) on Top Layer And Text "C10" (88.595mm,76.911mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2655.688mil|Location2.X=2659.312mil|Location1.Y=3472.188mil|Location2.Y=3475.812mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2655.688mil|Location2.X=2659.312mil|Location1.Y=3472.188mil|Location2.Y=3475.812mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.1mm) Between Pad U345-2(68.269mm,88.519mm) on Top Layer And Text ".Designator" (67.501mm,87.249mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2655.688mil|Location2.X=2659.312mil|Location1.Y=3444.188mil|Location2.Y=3447.812mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2655.688mil|Location2.X=2659.312mil|Location1.Y=3444.188mil|Location2.Y=3447.812mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.1mm) Between Pad U345-3(68.269mm,87.249mm) on Top Layer And Text ".Designator" (67.501mm,87.249mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3095.769mil|Location2.X=3099.394mil|Location1.Y=2648.248mil|Location2.Y=2651.873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3095.769mil|Location2.X=3099.394mil|Location1.Y=2648.248mil|Location2.Y=2651.873mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.1mm) Between Pad U6-1(78.994mm,67.31mm) on Top Layer And Text ".Designator" (77.409mm,69.428mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3083.536mil|Location2.X=3087.16mil|Location1.Y=2668.812mil|Location2.Y=2672.436mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3083.536mil|Location2.X=3087.16mil|Location1.Y=2668.812mil|Location2.Y=2672.436mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.1mm) Between Pad U6-2(78.044mm,67.31mm) on Top Layer And Text ".Designator" (77.409mm,69.428mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3045.785mil|Location2.X=3049.41mil|Location1.Y=2667.873mil|Location2.Y=2671.497mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3045.785mil|Location2.X=3049.41mil|Location1.Y=2667.873mil|Location2.Y=2671.497mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.1mm) Between Pad U6-3(77.094mm,67.31mm) on Top Layer And Text ".Designator" (77.409mm,69.428mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2661.188mil|Location2.X=2664.812mil|Location1.Y=2800.184mil|Location2.Y=2803.809mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2661.188mil|Location2.X=2664.812mil|Location1.Y=2800.184mil|Location2.Y=2803.809mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.1mm) Between Pad VB-1(67.31mm,71.501mm) on Multi-Layer And Text "U7" (67.64mm,70.917mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDKAKENFNE5QIUICZKZINB3QWATN1UFQI1TDFMFJBAFGJ01AG0XV0E"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.1mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2691.178mil|Location2.X=2694.803mil|Location1.Y=2790.188mil|Location2.Y=2793.812mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2691.178mil|Location2.X=2694.803mil|Location1.Y=2790.188mil|Location2.Y=2793.812mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Arc (67.31mm,71.501mm) on Top Overlay And Text "U7" (67.64mm,70.917mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2444.555mil|Location2.X=2449.742mil|Location1.Y=2304.07mil|Location2.Y=2309.257mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2444.555mil|Location2.X=2449.742mil|Location1.Y=2304.07mil|Location2.Y=2309.257mil|Absolute=True">Silk To Silk Clearance Constraint: (0.077mm &lt; 0.1mm) Between Text ".Designator" (63.504mm,56.685mm) on Top Overlay And Track (62.043mm,58.552mm)(62.043mm,59.565mm) on Top Overlay Silk Text to Silk Clearance [0.077mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2448.344mil|Location2.X=2451.969mil|Location1.Y=2303.376mil|Location2.Y=2307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2448.344mil|Location2.X=2451.969mil|Location1.Y=2303.376mil|Location2.Y=2307mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text ".Designator" (63.504mm,56.685mm) on Top Overlay And Track (62.043mm,58.552mm)(63.694mm,58.552mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3049.175mil|Location2.X=3052.799mil|Location1.Y=2718.184mil|Location2.Y=2721.809mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3049.175mil|Location2.X=3052.799mil|Location1.Y=2718.184mil|Location2.Y=2721.809mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text ".Designator" (77.409mm,69.428mm) on Top Overlay And Text "U6" (76.479mm,68.834mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3602.754mil|Location2.X=3606.378mil|Location1.Y=3082.773mil|Location2.Y=3086.398mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3602.754mil|Location2.X=3606.378mil|Location1.Y=3082.773mil|Location2.Y=3086.398mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "C10" (88.595mm,76.911mm) on Top Overlay And Track (91.556mm,77.813mm)(91.556mm,81.413mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3636.139mil|Location2.X=3639.764mil|Location1.Y=3061.692mil|Location2.Y=3065.316mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3636.139mil|Location2.X=3639.764mil|Location1.Y=3061.692mil|Location2.Y=3065.316mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "C10" (88.595mm,76.911mm) on Top Overlay And Track (91.556mm,77.813mm)(93.356mm,77.813mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.185mil|Location2.X=1894.809mil|Location1.Y=2491.168mil|Location2.Y=2494.793mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.185mil|Location2.X=1894.809mil|Location1.Y=2491.168mil|Location2.Y=2494.793mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "C2" (47.828mm,61.798mm) on Top Overlay And Track (46.598mm,63.351mm)(48.398mm,63.351mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1903.622mil|Location2.X=1907.246mil|Location1.Y=2491.168mil|Location2.Y=2494.793mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1903.622mil|Location2.X=1907.246mil|Location1.Y=2491.168mil|Location2.Y=2494.793mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "C2" (47.828mm,61.798mm) on Top Overlay And Track (48.398mm,63.351mm)(48.398mm,66.951mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3621.188mil|Location2.X=3624.812mil|Location1.Y=2741.168mil|Location2.Y=2744.793mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3621.188mil|Location2.X=3624.812mil|Location1.Y=2741.168mil|Location2.Y=2744.793mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "C4" (92.024mm,69.012mm) on Top Overlay And Text "R22" (88.468mm,68.148mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2770.168mil|Location2.X=2773.793mil|Location1.Y=2330.171mil|Location2.Y=2333.796mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2770.168mil|Location2.X=2773.793mil|Location1.Y=2330.171mil|Location2.Y=2333.796mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "C86" (68.885mm,57.963mm) on Top Overlay And Track (70.081mm,59.131mm)(72.26mm,59.131mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2111.188mil|Location2.X=2114.812mil|Location1.Y=4006.171mil|Location2.Y=4009.796mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2111.188mil|Location2.X=2114.812mil|Location1.Y=4006.171mil|Location2.Y=4009.796mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "R2" (53.67mm,100.889mm) on Top Overlay And Text "R20" (49.606mm,100.533mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3612.952mil|Location2.X=3616.576mil|Location1.Y=2681.188mil|Location2.Y=2684.812mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3612.952mil|Location2.X=3616.576mil|Location1.Y=2681.188mil|Location2.Y=2684.812mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "R22" (88.468mm,68.148mm) on Top Overlay And Track (91.815mm,66.41mm)(91.815mm,68.21mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3641.136mil|Location2.X=3644.761mil|Location1.Y=2681.188mil|Location2.Y=2684.812mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3641.136mil|Location2.X=3644.761mil|Location1.Y=2681.188mil|Location2.Y=2684.812mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "R22" (88.468mm,68.148mm) on Top Overlay And Track (91.815mm,68.21mm)(95.415mm,68.21mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3613.194mil|Location2.X=3620.631mil|Location1.Y=2609.574mil|Location2.Y=2616.361mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3613.194mil|Location2.X=3620.631mil|Location1.Y=2609.574mil|Location2.Y=2616.361mil|Absolute=True">Silk To Silk Clearance Constraint: (0.032mm &lt; 0.1mm) Between Text "R24" (91.897mm,64.694mm) on Top Overlay And Track (91.815mm,66.41mm)(91.815mm,68.21mm) on Top Overlay Silk Text to Silk Clearance [0.032mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3615.407mil|Location2.X=3620.593mil|Location1.Y=2609.695mil|Location2.Y=2614.883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3615.407mil|Location2.X=3620.593mil|Location1.Y=2609.695mil|Location2.Y=2614.883mil|Absolute=True">Silk To Silk Clearance Constraint: (0.016mm &lt; 0.1mm) Between Text "R24" (91.897mm,64.694mm) on Top Overlay And Track (91.815mm,66.41mm)(95.415mm,66.41mm) on Top Overlay Silk Text to Silk Clearance [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2119.407mil|Location2.X=2124.593mil|Location1.Y=2906.034mil|Location2.Y=2911.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2119.407mil|Location2.X=2124.593mil|Location1.Y=2906.034mil|Location2.Y=2911.221mil|Absolute=True">Silk To Silk Clearance Constraint: (0.084mm &lt; 0.1mm) Between Text "R6" (53.899mm,72.187mm) on Top Overlay And Track (49.424mm,74.021mm)(54.124mm,74.021mm) on Top Overlay Silk Text to Silk Clearance [0.084mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2128.273mil|Location2.X=2133.459mil|Location1.Y=2906.034mil|Location2.Y=2911.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2128.273mil|Location2.X=2133.459mil|Location1.Y=2906.034mil|Location2.Y=2911.221mil|Absolute=True">Silk To Silk Clearance Constraint: (0.084mm &lt; 0.1mm) Between Text "R6" (53.899mm,72.187mm) on Top Overlay And Track (54.124mm,74.021mm)(54.124mm,84.221mm) on Top Overlay Silk Text to Silk Clearance [0.084mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2725.188mil|Location2.X=2728.812mil|Location1.Y=2548.171mil|Location2.Y=2551.796mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2725.188mil|Location2.X=2728.812mil|Location1.Y=2548.171mil|Location2.Y=2551.796mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "REFDES" (68.948mm,63.5mm) on Top Overlay And Text "RefDes" (69.266mm,63.5mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3128.188mil|Location2.X=3131.812mil|Location1.Y=2998.175mil|Location2.Y=3001.799mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3128.188mil|Location2.X=3131.812mil|Location1.Y=2998.175mil|Location2.Y=3001.799mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.1mm) Between Text "Vcomp" (72.644mm,75.184mm) on Top Overlay And Text "VO" (79.502mm,74.93mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDJ2XBNKVDQQYICHGLFYD0K4AKOF2LVTDDR0CXXOH12YVUY5WG4AUK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4190.11mil|Location2.X=4198.984mil|Location1.Y=2832.553mil|Location2.Y=2841.427mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\kylep\OneDrive\Documents\311 Github\311-Group-9\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4190.11mil|Location2.X=4198.984mil|Location1.Y=2832.553mil|Location2.Y=2841.427mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Text "R234" (101.143mm,71.298mm) on Top Overlay </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
