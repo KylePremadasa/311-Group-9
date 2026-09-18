@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=opampOUT Pin=R7-2
+Removed Pin From Net: NetName=opampOUT Pin=R8-1
+Removed Pin From Net: NetName=NEGATIVE Pin=R234-1
+Removed Pin From Net: NetName=vbout Pin=R234-1
+Removed Pin From Net: NetName=5V Pin=R234-2
+Removed Pin From Net: NetName=VREF Pin=R234-2
+Removed Pin From Net: NetName=opampOUT Pin=U345-1
+Change Component Comment : Designator=R234 Old Comment=1000 New Comment=1200
+Change Component Comment : Designator=R234 Old Comment=1200 New Comment=1000
+Added Pin To Net: NetName=NEGATIVE Pin=R234-1
+Added Pin To Net: NetName=vbout Pin=R234-1
+Added Pin To Net: NetName=5V Pin=R234-2
+Added Pin To Net: NetName=VREF Pin=R234-2
+Change Net Name : Old Net Name=opampOUT New Net Name=VOUT
+Added Pin To Net: NetName=opampOUT2 Pin=R7-2
+Added Pin To Net: NetName=opampOUT2 Pin=U345-1
+Added Net: Name=opampOUT2
+Added Member To Class: ClassName=EE311_Example_Boost_Sch Member=Component R234 1200
+Added Rule: Name=Schematic Supply Nets_7
+Added Rule: Name=Schematic Supply Nets_8
