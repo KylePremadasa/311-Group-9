@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [EE311_Example_Boost.PrjPcb]
+   Generated File[EE311_Example_Boost_PCB.TXT]
+   Generated File[EE311_Example_Boost_PCB.LDP]
+   Generated File[EE311_Example_Boost_PCB.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 3:44:18 PM On 9/27/2026

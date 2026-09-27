@@ -1,0 +1,410 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD26\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">9/27/2026</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:38:59 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc" class="file"><acronym title="C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc">C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">22</td></tr>
+</table>
+</td>
+</table><a name="IDM022ASJ2BHGMO1PIVGUNKU4YJONAMAYZDJMQICI2KDVU1P5AX2HH"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSHBDJTAWQFUTKSOHBV45LRDUQGCSZJHVUGFQASEWJSZ44ZS20UPB">Clearance Constraint (Gap=0.381mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMQXPYEPQ2DS4KVNCUOMAD0LZTIQRKWGQML2NKQKCOEHEN0A55HWL">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMYMTITRWWODXB0UEJRR3S4DDGP5WX1SHXX0X34JETXEIAVBAPEP">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0HCI2NDSLUEFNNFB3BBQH3BWZIINBPWIVXSFQFUA2NWW0HPO0NI">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQSFI3C4PWC2ALI2VUFQKLEUQOHH3RVB2Y5MQVKPJCTI22FZFWX5B">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLW0ERXPM145FMHKW3BQYLE5QQLUQULPCZ2IBLDBNGFHXXEILKU2C">Width Constraint (Min=0.127mm) (Max=10.16mm) (Preferred=0.508mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBNYF1GYTML4NMHFQ0D1HDEKDEP5EVLXZCCJ2RCC2SK2JYOQULSLK">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDS4CXSKAJAOVLDKN5JCQZ4ACSFPRAZKMXSJ0413GTYJTKVERQVMHJ">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPYQ0YQ2IQA4MJEVLN4FRONHXFOIINAOVUNNGFJCD0IC3EL4UZLZI">Minimum Annular Ring (Minimum=0.13mm) (All)</a></td>
+<td class="column2">22</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMOFPOU1BZSAXLN2UOA0WYEZSIN03QYJ00QNNZZGBRVUJBQK3KLK">Hole Size Constraint (Min=0.25mm) (Max=12mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVNQZA4N114RWG5CQO2ADYJ3YMNIUQ2XYNGVSDZDOD2DACX4TPNMD">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNIHQJAYYCMWGLOMPQXF5GEYGTFU5DAY4MXAJTIE21NJPQRYUBXGM">Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQ402AFOIZTTGCIA5BQQ15IIHGKT51QJJCFDJNJHXOKMGDHGWA5EC">Silk To Solder Mask (Clearance=0.1mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRCIAB5FLS5PAPZSJO1LGV2ADVPOR1D11AC2NHBVI5EM3UQOJG2H">Silk to Silk (Clearance=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHP5DV4WGA3SBHTE1NWYWSBAOUJXTPRJRLXCSW0DOZU0C2C32GQLP">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBIIWUVW4R3LHHPQGSSB5TIQNRIN4LPIFOOYHZOKBNCB2AY53OHEJ">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOXTDK45GTCCYMMARUREZHDBFHM2C42CUIPAS0QHG4NN1UMEF2IMH">Height Constraint (Min=0mm) (Max=50mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">22</td>
+</tr>
+</table><br><a name="IDPYQ0YQ2IQA4MJEVLN4FRONHXFOIINAOVUNNGFJCD0IC3EL4UZLZI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Annular Ring (Minimum=0.13mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4011.816mil|Location2.X=4018.184mil|Location1.Y=3004.151mil|Location2.Y=3010.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4011.816mil|Location2.X=4018.184mil|Location1.Y=3004.151mil|Location2.Y=3010.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (101.981mm,76.124mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2238.816mil|Location2.X=2245.184mil|Location1.Y=3782.151mil|Location2.Y=3788.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2238.816mil|Location2.X=2245.184mil|Location1.Y=3782.151mil|Location2.Y=3788.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (56.947mm,95.885mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2338.816mil|Location2.X=2345.184mil|Location1.Y=4069.151mil|Location2.Y=4075.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2338.816mil|Location2.X=2345.184mil|Location1.Y=4069.151mil|Location2.Y=4075.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (59.487mm,103.175mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.076mil|Location2.X=2681.444mil|Location1.Y=4073.151mil|Location2.Y=4079.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.076mil|Location2.X=2681.444mil|Location1.Y=4073.151mil|Location2.Y=4079.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (68.028mm,103.276mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2716.83mil|Location2.X=2723.198mil|Location1.Y=4111.137mil|Location2.Y=4117.505mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2716.83mil|Location2.X=2723.198mil|Location1.Y=4111.137mil|Location2.Y=4117.505mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (69.088mm,104.241mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2898.234mil|Location2.X=2904.602mil|Location1.Y=3533.569mil|Location2.Y=3539.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2898.234mil|Location2.X=2904.602mil|Location1.Y=3533.569mil|Location2.Y=3539.937mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (73.696mm,89.571mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3064.258mil|Location2.X=3070.626mil|Location1.Y=3295.867mil|Location2.Y=3302.235mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3064.258mil|Location2.X=3070.626mil|Location1.Y=3295.867mil|Location2.Y=3302.235mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (77.913mm,83.533mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3066.816mil|Location2.X=3073.184mil|Location1.Y=3362.151mil|Location2.Y=3368.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3066.816mil|Location2.X=3073.184mil|Location1.Y=3362.151mil|Location2.Y=3368.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (77.978mm,85.217mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3212.446mil|Location2.X=3218.814mil|Location1.Y=3375.151mil|Location2.Y=3381.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3212.446mil|Location2.X=3218.814mil|Location1.Y=3375.151mil|Location2.Y=3381.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (81.677mm,85.547mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3243.816mil|Location2.X=3250.184mil|Location1.Y=4225.151mil|Location2.Y=4231.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3243.816mil|Location2.X=3250.184mil|Location1.Y=4225.151mil|Location2.Y=4231.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (82.474mm,107.137mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3251.816mil|Location2.X=3258.184mil|Location1.Y=3796.151mil|Location2.Y=3802.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3251.816mil|Location2.X=3258.184mil|Location1.Y=3796.151mil|Location2.Y=3802.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (82.677mm,96.241mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3296.816mil|Location2.X=3303.184mil|Location1.Y=3994.151mil|Location2.Y=4000.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3296.816mil|Location2.X=3303.184mil|Location1.Y=3994.151mil|Location2.Y=4000.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (83.82mm,101.27mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3354.816mil|Location2.X=3361.184mil|Location1.Y=4150.151mil|Location2.Y=4156.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3354.816mil|Location2.X=3361.184mil|Location1.Y=4150.151mil|Location2.Y=4156.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (85.293mm,105.232mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3448.904mil|Location2.X=3455.272mil|Location1.Y=3582.475mil|Location2.Y=3588.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3448.904mil|Location2.X=3455.272mil|Location1.Y=3582.475mil|Location2.Y=3588.843mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (87.683mm,90.813mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3535.816mil|Location2.X=3542.184mil|Location1.Y=3351.151mil|Location2.Y=3357.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3535.816mil|Location2.X=3542.184mil|Location1.Y=3351.151mil|Location2.Y=3357.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (89.891mm,84.938mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3540.816mil|Location2.X=3547.184mil|Location1.Y=3770.521mil|Location2.Y=3776.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3540.816mil|Location2.X=3547.184mil|Location1.Y=3770.521mil|Location2.Y=3776.889mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (90.018mm,95.59mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3561.816mil|Location2.X=3568.184mil|Location1.Y=3250.971mil|Location2.Y=3257.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3561.816mil|Location2.X=3568.184mil|Location1.Y=3250.971mil|Location2.Y=3257.339mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (90.551mm,82.393mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3620.816mil|Location2.X=3627.184mil|Location1.Y=3645.585mil|Location2.Y=3651.953mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3620.816mil|Location2.X=3627.184mil|Location1.Y=3645.585mil|Location2.Y=3651.953mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (92.05mm,92.416mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3624.816mil|Location2.X=3631.184mil|Location1.Y=3880.151mil|Location2.Y=3886.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3624.816mil|Location2.X=3631.184mil|Location1.Y=3880.151mil|Location2.Y=3886.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (92.151mm,98.374mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3768.816mil|Location2.X=3775.184mil|Location1.Y=3665.151mil|Location2.Y=3671.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3768.816mil|Location2.X=3775.184mil|Location1.Y=3665.151mil|Location2.Y=3671.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (95.809mm,92.913mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3884.816mil|Location2.X=3891.184mil|Location1.Y=4182.521mil|Location2.Y=4188.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3884.816mil|Location2.X=3891.184mil|Location1.Y=4182.521mil|Location2.Y=4188.889mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (98.755mm,106.054mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3889.816mil|Location2.X=3896.184mil|Location1.Y=3340.151mil|Location2.Y=3346.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\crazy\Downloads\EE311_Example_Boost\EE311_Example_Boost_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3889.816mil|Location2.X=3896.184mil|Location1.Y=3340.151mil|Location2.Y=3346.519mil|Absolute=True">Minimum Annular Ring: (0.125mm &lt; 0.13mm) Via (98.882mm,84.658mm) from Top Layer to Bottom Layer (Annular Ring=0.125mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
