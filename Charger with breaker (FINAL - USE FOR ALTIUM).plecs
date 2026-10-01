@@ -71,7 +71,7 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [0, 23; 1920, 989]
+    Location      [0, 24; 1539, 825]
     ZoomFactor    0.999997
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -1523,7 +1523,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "R"
-        Value         "1.8e3"
+        Value         "2.7e3"
         Show          on
       }
     }
@@ -2030,7 +2030,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "R"
-        Value         "22e3"
+        Value         "6.8e3"
         Show          on
       }
     }
@@ -2044,7 +2044,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "R"
-        Value         "1.5e3"
+        Value         "2.2e3"
         Show          on
       }
     }
@@ -2058,7 +2058,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "R"
-        Value         "330e3"
+        Value         "8.2e3"
         Show          on
       }
     }
